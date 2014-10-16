@@ -1,30 +1,30 @@
 {
-  "name": "pk-slider",
-  "title": "pk-slider",
-  "description": "pk-slider",
+  "name": "pk-select",
+  "title": "pk-select",
+  "description": "pk-select",
   "version": "0.0.1",
-  "homepage": "https://github.com/sw4/pk-slider",
+  "homepage": "https://github.com/sw4/pk-select",
   "author": {
     "name": "SW4"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/sw4/pk-slider.git"
+    "url": "git://github.com/sw4/pk-select.git"
   },
   "bugs": {
-    "url": "https://github.com/sw4/pk-slider/issues"
+    "url": "https://github.com/sw4/pk-select/issues"
   },
   "licenses": [
     {
       "type": "MIT",
-      "url": "https://github.com/sw4/pk-slider/blob/master/LICENSE-MIT"
+      "url": "https://github.com/sw4/pk-select/blob/master/LICENSE-MIT"
     },
     {
       "type": "GPL",
-      "url": "https://github.com/sw4/pk-slider/blob/master/LICENSE-GPL"
+      "url": "https://github.com/sw4/pk-select/blob/master/LICENSE-GPL"
     }
   ],
-  "main": "dist/pk-slider",
+  "main": "dist/pk-select",
   "engines": {
     "node": ">=0.6"
   },
