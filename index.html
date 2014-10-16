@@ -1,12 +1,11 @@
 <!doctype html>
 <html lang="en">
     <head>
-        <title>pk-slider</title>
+        <title>pk-select</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
         <meta charset="utf-8">   
-        <link href="https://rawgit.com/sw4/pk-core/master/src/pk-core.css" rel="stylesheet">          
-        <link href="https://rawgit.com/sw4/pk-draggable/master/src/pk-draggable.css" rel="stylesheet">     
-        <link href="https://rawgit.com/sw4/pk-slider/master/src/pk-slider.css" rel="stylesheet">          
+        <link href="https://rawgit.com/sw4/pk-core/master/src/pk-core.css" rel="stylesheet">            
+        <link href="https://rawgit.com/sw4/pk-select/master/src/pk-select.css" rel="stylesheet">          
         <style>
             html, body {
                 height: 100%;
@@ -18,15 +17,21 @@
         </style>
     </head>
     <body >        
-        <span id='example1'></span>
-        <br/><br />
-        <span id='example2'></span>
+        <select id='example'>
+            <option value='val1'>option 1</option>
+            <option value='val2'>option 2</option>
+            <option value='val3'>option 3</option>
+            <option value='val4'>option 4</option>
+            <option value='val5'>option 5</option>
+        </select>
         <script src="https://rawgit.com/sw4/pk-core/master/src/pk-core.js"></script>  
-        <script src="https://rawgit.com/sw4/pk-draggable/master/src/pk-draggable.js"></script>  
-        <script src="https://rawgit.com/sw4/pk-slider/master/src/pk-slider.js"></script>  
+        <script src="https://rawgit.com/sw4/pk-select/master/src/pk-select.js"></script>  
         <script>
-            pk.slider({element:document.getElementById('example1'), units:'%', axis:'y'});
-            pk.slider({element:document.getElementById('example2'), units:'%'});
+            pk.select({
+                element: document.getElementById('example'),
+                value:'val2',
+                multiple:true
+            });
         </script>
     </body>
 </html>
