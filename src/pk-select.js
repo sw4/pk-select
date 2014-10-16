@@ -9,7 +9,7 @@ var pk = pk || {};
             inputMultiple = (opt.multiple || pk.attribute(el, 'multiple')) ? true : false,
             inputPlaceholder = opt.placeholder || pk.attribute(el, 'placeholder') || 'Please select...',
             inputSelection={name:[], value:[]},
-            listeners=opt.listeners === undefined ? {} : opt.listeners,            
+            // listeners=opt.listeners === undefined ? {} : opt.listeners,            
             inputDisabled=(opt.disabled || el.getAttribute('disabled')) ? 'disabled' : '', 
             inputTabIndex=opt.tabindex || el.getAttribute('tabindex') || 0;     
         
@@ -78,9 +78,10 @@ var pk = pk || {};
             inputSelection.value=[];
             inputSelection.name=[];
             for(var o in options){
-                if(inputMultiple && o == i){
+                o=parseInt(o,0);
+                if(inputMultiple && o === i){
                     options[o].selected = !options[o].selected;   
-                }else if(!inputMultiple && o == i ){
+                }else if(!inputMultiple && o === i ){
                     options[o].selected=true;
                 }else if(!inputMultiple){
                     options[o].selected=false;
@@ -97,7 +98,7 @@ var pk = pk || {};
             updatePlaceholder();
         }
         pk.bindEvent('click', optionsEl, function(e){    
-            if(e.target.nodeName == "LI"){
+            if(e.target.nodeName === "LI"){
                 updateSelection(pk.getIndex(e.target));
             }
         });        
