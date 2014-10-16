@@ -1,6 +1,7 @@
 .pk-select{
     line-height:30px;
     position:relative;
+    text-align:left;
 }
 .pk-select:focus, .pk-select:active{
     outline:none;    
