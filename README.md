@@ -31,9 +31,12 @@ Returns a new select object.
 element: \\ DOM element to replace with a select - the elements attributes are carried over
 name: \\ the name to use for the select input form element (can also be set as attribute on original element)
 value: \\ the starting value (defaults to null)
+options: \\ array of objects {name:,value:,selected:} representing the option list
 disabled: \\ boolean, whether the toggle is disabled (can also be set as attribute on original element)
 tabindex: \\ tabindex value (can also be set as attribute on original element) - defaults to 0
 listeners: \\ object consisting of regular event functions for input elements
+multiple: \\ allow multiple selections
+dropdown: \\ show options in dropdown, or flatly
 ```
 
 ###Methods
