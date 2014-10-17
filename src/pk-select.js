@@ -9,11 +9,6 @@ var pk = pk || {};
             dropdown = Boolean(opt.dropdown),
             inputMultiple = (Boolean(opt.multiple)===true || pk.attribute(el, 'multiple')) ? true : false,
             inputPlaceholder = opt.placeholder || pk.attribute(el, 'placeholder') || 'Please select...',
-            inputSelection = {
-                name: [],
-                value: []
-            },
-            inputSelected=[],
             // listeners=opt.listeners === undefined ? {} : opt.listeners,            
             inputDisabled = (opt.disabled || el.getAttribute('disabled')) ? 'disabled' : '',
             inputTabIndex = opt.tabindex || el.getAttribute('tabindex') || 0;
@@ -67,7 +62,7 @@ var pk = pk || {};
                 if(pk.attribute(e.target, 'data-value') && pk.hasClass(e.target, 'pk-select-value-tag')){
                     inputValue = pk.collide(inputValue, pk.attribute(e.target, 'data-value'), 2);                    
                     updateValue();
-                };
+                }
                 
                 
                 if(pk.hasClass(e.target, 'pk-select-value-tag') || (inputMultiple && pk.hasClass(e.target, 'pk-option')) || !pk.hasClass(el, 'pk-show')){
