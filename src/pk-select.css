@@ -85,6 +85,7 @@
         }
         .pk-select.pk-show ul {
             display:block;
+            z-index:999;
         }
         .pk-select li {
             transition:all 80ms ease-in;
