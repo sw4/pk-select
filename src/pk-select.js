@@ -78,7 +78,9 @@ var pk = pk || {};
 
         function updateValue(){            
             var valueHTML='';
-            inputValue=inputMultiple ? inputValue : inputValue[0];
+            if(!inputMultiple){
+                inputValue.splice(1, inputValue.length-1);
+            }
             for(var o in options){
                 options[o].selected = (inputValue.indexOf(options[o].value) !== -1) ? true : false;
                 pk.toggleClass(optionsEl.children[o], 'pk-selected', options[o].selected);                
