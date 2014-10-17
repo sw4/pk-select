@@ -45,12 +45,10 @@ var pk = pk || {};
                 <div class='pk-select-value " + (!inputValue || inputValue.length<1 ? 'pk-placeholder' : '') + "'>sdsd</div>\
             <ul>";
         for (var o in options) {
-            tpl += "<li class='pk-option'>" + options[o].name + "</li>";
+            tpl += "<li class='pk-option' data-value='"+options[o].value+"'>" + options[o].name + "</li>";
         }
         tpl += "</ul></div>";
         
-
-
         el.innerHtml = '';
         el = pk.replaceEl(el, tpl);
 
@@ -65,30 +63,39 @@ var pk = pk || {};
                 pk.toggleClass(el, 'pk-show');
             });
             pk.bindEvent('click', el, function (e) {
-                if(pk.attribute(e.target, 'data-value')){
-                    
+
+                if(pk.attribute(e.target, 'data-value') && pk.hasClass(e.target, 'pk-select-value-tag')){
+                    inputValue = pk.collide(inputValue, pk.attribute(e.target, 'data-value'), 2);                    
+                    updateValue();
                 };
-                pk.toggleClass(overlayEl, 'pk-hide');
-                pk.toggleClass(el, 'pk-show');
+                
+                
+                if(pk.hasClass(e.target, 'pk-select-value-tag') || (inputMultiple && pk.hasClass(e.target, 'pk-option')) || !pk.hasClass(el, 'pk-show')){
+                    pk.removeClass(overlayEl, 'pk-hide');
+                    pk.addClass(el, 'pk-show');
+                }else{
+                    pk.addClass(overlayEl, 'pk-hide');
+                    pk.removeClass(el, 'pk-show');                }
+                                
             });
         }
        
 
         function updateValue(){            
-            var labels=[];
+            var valueHTML='';
+            inputValue=inputMultiple ? inputValue : inputValue[0];
             for(var o in options){
                 options[o].selected = (inputValue.indexOf(options[o].value) !== -1) ? true : false;
-                pk.toggleClass(optionsEl.children[o], 'pk-selected', options[o].selected);
-                if(options[o].selected){labels.push(options[o].name);}
+                pk.toggleClass(optionsEl.children[o], 'pk-selected', options[o].selected);                
+                if(options[o].selected){
+                    valueHTML = inputMultiple ? valueHTML+="<span class='pk-select-value-tag' data-value='"+options[o].value+"'>"+options[o].name+"</span>" : options[o].name;
+                }
             }
-            
+            triggerEl.innerHTML = valueHTML ? valueHTML : inputPlaceholder;
             if (inputValue.length < 1) {
-                triggerEl.innerHTML = inputPlaceholder;
                 pk.addClass(triggerEl, 'pk-placeholder');
-                return;
             }else{
                 pk.removeClass(triggerEl, 'pk-placeholder');
-                triggerEl.innerHTML = inputMultiple ? "<span class='pk-select-value-tag'>" + labels.join("</span><span class='pk-select-value-tag'>") + "</span>" : labels.join('');
             }
             // update underlying input element
             inputEl.value = inputMultiple ? inputValue : inputValue.join('');
