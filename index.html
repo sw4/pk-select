@@ -33,7 +33,7 @@
             <option value='val5'>option 5</option>
         </select>
         <br/>
-        <h1>Single select with no initial selection</h1>
+        <h1>Single select with dropdown and initial selection</h1>
         <select id='example3'>
             <option value='val1'>option 1</option>
             <option value='val2'>option 2</option>
@@ -42,7 +42,7 @@
             <option value='val5'>option 5</option>
         </select>
         <br/>
-        <h1>Single select with dropdown and initial selection</h1>
+        <h1>Single select with no initial selection</h1>
         <select id='example4'>
             <option value='val1'>option 1</option>
             <option value='val2'>option 2</option>
@@ -68,13 +68,13 @@
             });  
             
             pk.select({
-                element: document.getElementById('example3')
+                element: document.getElementById('example3'),
+                value:'val3',
+                dropdown:true
             });          
             
             pk.select({
-                element: document.getElementById('example4'),
-                value:'val3',
-                dropdown:true
+                element: document.getElementById('example4')
             });     
             
         </script>
