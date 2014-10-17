@@ -44,11 +44,31 @@
             background:#f5f5f5;
             border-radius:4px;
             display:inline-block;
-            vertical-align:middle;
             margin:0 2px;
-            padding:2px;
+            padding:2px 10px;
+            position:relative;
             line-height:20px;
+            cursor:default;
         }
+        .pk-select-value-tag:after{
+            position:absolute;
+            top:0;
+            right:0;   
+            border-bottom-left-radius:4px;
+            background:#ff0000;
+            content:'\00D7';
+            line-height:12px;
+            text-align:center;    
+            height:12px;
+            width:12px;  
+            color:#fff;
+            opacity:0;
+            transition:opacity 100ms ease-in;
+        }
+        .pk-select-value-tag:hover:after{
+            opacity:1;       
+        }
+
         .pk-select .pk-select-value.pk-placeholder {
             color:#b4b4b4;
             font-style:italic;
